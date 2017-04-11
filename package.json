@@ -1,0 +1,35 @@
+{
+  "name": "repository-dal",
+  "version": "1.0.0-3.1.5",
+  "description": "Data Access Layer",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": "",
+  "dependencies": {
+    "bluebird": "^3.3.4",
+    "lodash": "^4.12.0",
+    "mysql": "^2.10.2",
+    "sequelize": "^3.21.0"
+  },
+  "devDependencies": {
+    "code": "^3.0.1",
+    "lab": "^10.8.2",
+    "joi": "^6.10.1"
+  },
+  "peerDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "lab -a code -t 50 -v",
+    "coverage": "lab -c -a code -r html -o coverage/coverage.html",
+    "preversion:dev": "node connectToDb.js",
+    "version:dev": "npm version prerelease",
+    "postversion": "versionPackage && git add ./index.js && git commit --amend --no-edit",
+    "prepublish:dev": "npm run version:dev",
+    "publish:dev": "npm publish"
+  },
+  "author": "Brad Murry",
+  "license": "UNLICENSED"
+}
